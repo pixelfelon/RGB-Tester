@@ -1,0 +1,10 @@
+RGB-Tester
+A simple web page useful for prototyping and design patterns for addressable RGB LED strips, in JavaScript.
+----------
+Created By James Rowley (pixelfelon)
+May 21, 2014
+----------
+CHANGELOG
+Version 1.0.0
+-Initial Commit
+-Area for content is added
