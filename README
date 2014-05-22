@@ -3,8 +3,13 @@ A simple web page useful for prototyping and design patterns for addressable RGB
 ----------
 Created By James Rowley (pixelfelon)
 May 21, 2014
+Copyright 2014 MCEpic.com
 ----------
 CHANGELOG
 Version 1.0.0
 -Initial Commit
 -Area for content is added
+Version 1.0.0a
+-Changed content area border to drop shadow
+-Added Logo
+-Added Header/Footer
