@@ -1,10 +1,106 @@
 <html>
 	<head>
 		<title>LED Testbed</title>
-		<script src="js/led.js" type="text/javascript"></script>
+		<!--<script src="js/led.js" type="text/javascript"></script>-->
+		<script type="text/javascript">
+			/*RGB-Tester Scripts*/
+			
+			var LEDS = [];
+			var PBVS = [];
+			var TLEDS = 0;
+			var T=0;
+			
+			function init(numleds){
+				TLEDS = numleds;
+				for(var ln = 1; ln<=numleds; ln++){
+					window["led"+ln.toString()] = document.getElementById("led"+ln.toString());
+					LEDS[ln]=RGB(0,0,0);
+				}
+				return 1;
+			}
+			
+			function RGB(r,g,b){
+				this.r=r;
+				this.g=g;
+				this.b=b;
+				return this;
+			}
+			
+			function CSSRGB(rgb){
+				rstr="rgb("+Math.floor(rgb.r.toString())+","+Math.floor(rgb.g.toString())+","+Math.floor(rgb.b.toString())+")";
+				return rstr;
+			}
+			
+			function RS(array,value){
+				console.log(array);
+				for(var ai=(array.length-2);ai>=0;ai--){
+					array[ai+1]=array[ai];
+				}
+				array[0]=value;
+				console.log(array);
+				return array;
+			}
+			
+			function LS(array,value){
+				console.log(array);
+				for(var ai=0;ai<(array.length-1);ai++){
+					array[ai]=array[ai+1];
+				}
+				array[(array.length-1)]=value;
+				console.log(array);
+				return array;
+			}
+			
+			var gray=new RGB(64,64,64);
+			var purple=new RGB(200,60,250);
+			
+			function RGBLog(rgb){
+				console.log(rgb.r+","+rgb.g+","+rgb.b);
+			}
+			
+			function vBright(rgb,bright){
+				//console.log(rgb.r+","+rgb.g+","+rgb.b);
+				//console.log(bright);
+				rgb.r=rgb.r*(bright/255);
+				rgb.g=rgb.g*(bright/255);
+				rgb.b=rgb.b*(bright/255);
+				//console.log(rgb.r+","+rgb.g+","+rgb.b);
+				return rgb;
+			}
+			
+			function LEDSet(ledarray){
+				//console.log("Setting LEDs");
+				for(var ln=1;ln<=TLEDS;ln++){
+					tv=CSSRGB(vBright(RGB(200,60,250),(255-24*Math.sqrt(30+30*Math.sin((ln*(Math.PI/8))+(T/15))))));
+					//RGBLog(tv);
+					window["led"+ln.toString()].style.backgroundColor=tv;
+					//console.log(ln);
+					//RGBLog(ledarray[ln.toString()]);
+				}
+				return ledarray;
+			}
+			
+			function LEDTick(){
+				LEDs=[purple,purple,purple,purple,purple,purple,purple,purple];
+				//console.log("Ticking LEDs");
+				for(var ln=1;ln<=TLEDS;ln++){
+					//console.log(ln);
+					tv=vBright(RGB(200,60,250),(255*Math.random()));
+					//RGBLog(tv);
+					LEDs[ln]=tv;
+					//RGBLog(LEDs[(ln+0)]);
+					//if(ln>1){RGBLog(LEDs[(ln-1)]);}
+				}
+				LEDSet(LEDs);
+				setTimeout(LEDTick, 33);
+				T++;
+				//if(T==121){T=1;}
+				return 1;
+			}
+		</script>
 		<link rel="stylesheet" type="text/css" href="style/led.css"/>
 	</head>
-	<body>
+	<body onload="init(8);">
 		<div id="header">
 		</div>
 		<div id="leds">
@@ -47,6 +143,7 @@
 		</div>
 		<div id="footer">
 			<p><i>&copy;MCepic 2014.</i> All rights reserved.</p>
+			<p><button onclick="LEDTick();">Go!</button></p>
 		</div>
 	</body>
 </html>
