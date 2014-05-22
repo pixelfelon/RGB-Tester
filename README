@@ -10,6 +10,9 @@ Version 1.0.0
 -Initial Commit
 -Area for content is added
 Version 1.0.0a
--Changed content area border to drop shadow
+xChanged content area border to drop shadow (DID NOT COMPLETE)
 -Added Logo
 -Added Header/Footer
+Version 1.0.1
+-Added statically placed and colored LEDs
+-Changed some spacing
