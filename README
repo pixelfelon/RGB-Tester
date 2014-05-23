@@ -16,3 +16,7 @@ xChanged content area border to drop shadow (DID NOT COMPLETE)
 Version 1.0.1
 -Added statically placed and colored LEDs
 -Changed some spacing
+Version 1.0.2
+-Added basic color and LED handling functions
+-Added button to start color script
+-Added simple, sinusoidal default script
