@@ -20,3 +20,9 @@ Version 1.0.2
 -Added basic color and LED handling functions
 -Added button to start color script
 -Added simple, sinusoidal default script
+Version 1.1.0
+-Added capability to resize LED area, setting number of rows and columns
+-Added auto-resizing of LEDs to fit on screen
+-Changed "Go!" button to "Start" button
+-Added "Stop" button
+-Prevented multiple instances of animation loop from running at once
