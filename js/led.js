@@ -154,10 +154,10 @@ function updateDims(){
 			//	LCLASS++;
 			//}
 		}
-		if(Hnew*SIZECLASS[LCLASS]>(Cont.clientHeight-50)){
+		if(Hnew*SIZECLASS[LCLASS]>(Cont.clientHeight-25)){
 			//console.log("Tested for SIZECLASS too large for height.");
 			LCLASS--;
-			if(Hnew*SIZECLASS[LCLASS]>(Cont.clientHeight-50)){
+			if(Hnew*SIZECLASS[LCLASS]>(Cont.clientHeight-25)){
 				//console.log("Shitty code powers... ACTIVATED");
 				LCLASS--;
 			}

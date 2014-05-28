@@ -26,3 +26,5 @@ Version 1.1.0
 -Changed "Go!" button to "Start" button
 -Added "Stop" button
 -Prevented multiple instances of animation loop from running at once
+Version 1.1.0a
+-Fixed footer spacing
